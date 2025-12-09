@@ -10,19 +10,19 @@
   // ==========================================
   
   const ThemeManager = {
-    // Get stored theme or detect system preference
+    // Get stored theme or detect system preference (defaults to dark)
     getInitialTheme: function() {
       const storedTheme = localStorage.getItem('theme');
       if (storedTheme) {
         return storedTheme;
       }
       
-      // Check for system preference
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
+      // Check for system preference, but default to dark theme
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
       }
       
-      return 'light';
+      return 'dark';
     },
 
     // Apply theme to the document
@@ -120,7 +120,7 @@
   }
 
   // ==========================================
-  // Scroll Animations
+  // Scroll Animations with Stagger Effect
   // ==========================================
   
   function initScrollAnimations() {
@@ -138,10 +138,76 @@
       });
     }, observerOptions);
 
-    // Observe elements with animation class
-    document.querySelectorAll('.project-card, .skill-item, .contact-item').forEach(el => {
+    // Observe elements with stagger animation
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.animationDelay = `${index * 0.1}s`;
+      observer.observe(card);
+    });
+
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.animationDelay = `${index * 0.15}s`;
+      observer.observe(item);
+    });
+
+    // Observe other elements
+    document.querySelectorAll('.contact-item').forEach(el => {
+      el.style.opacity = '0';
       observer.observe(el);
     });
+  }
+
+  // ==========================================
+  // Parallax Effect on Mouse Move
+  // ==========================================
+  
+  function initParallaxEffect() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX / window.innerWidth;
+      const mouseY = e.clientY / window.innerHeight;
+      
+      const codeBlock = document.querySelector('.code-block');
+      if (codeBlock) {
+        const moveX = (mouseX - 0.5) * 20;
+        const moveY = (mouseY - 0.5) * 20;
+        codeBlock.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      }
+    });
+  }
+
+  // ==========================================
+  // Add Particle Effect to Hero
+  // ==========================================
+  
+  function addParticleEffect() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    // Create subtle floating particles
+    for (let i = 0; i < 15; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.cssText = `
+        position: absolute;
+        width: ${Math.random() * 4 + 2}px;
+        height: ${Math.random() * 4 + 2}px;
+        background: var(--accent);
+        border-radius: 50%;
+        opacity: ${Math.random() * 0.3 + 0.1};
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation: float ${Math.random() * 10 + 5}s ease-in-out infinite;
+        animation-delay: ${Math.random() * 5}s;
+        pointer-events: none;
+      `;
+      hero.appendChild(particle);
+    }
   }
 
   // ==========================================
@@ -181,10 +247,14 @@
       document.addEventListener('DOMContentLoaded', () => {
         initScrollAnimations();
         initFormHandling();
+        initParallaxEffect();
+        addParticleEffect();
       });
     } else {
       initScrollAnimations();
       initFormHandling();
+      initParallaxEffect();
+      addParticleEffect();
     }
   }
 
