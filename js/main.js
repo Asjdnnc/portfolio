@@ -155,12 +155,8 @@
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Get form data
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData.entries());
-      
       // Here you would typically send data to a server
-      console.log('Form submitted:', data);
+      // For now, just show success message
       
       // Show success message (you can customize this)
       alert('Thank you for your message! I\'ll get back to you soon.');
