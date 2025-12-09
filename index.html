@@ -19,6 +19,15 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Aditya Kumar - MERN Stack Developer">
     
+    <!-- Initialize Theme Immediately (Before Render) -->
+    <script>
+        (function() {
+            const storedTheme = localStorage.getItem('theme');
+            const theme = storedTheme || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
