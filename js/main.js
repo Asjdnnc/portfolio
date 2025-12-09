@@ -161,36 +161,48 @@
   }
 
   // ==========================================
-  // Parallax Effect on Mouse Move
+  // Parallax Effect on Mouse Move (Optimized)
   // ==========================================
   
   function initParallaxEffect() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
 
-    document.addEventListener('mousemove', (e) => {
-      const mouseX = e.clientX / window.innerWidth;
-      const mouseY = e.clientY / window.innerHeight;
-      
+    let ticking = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    function updateParallax() {
       const codeBlock = document.querySelector('.code-block');
       if (codeBlock) {
-        const moveX = (mouseX - 0.5) * 20;
-        const moveY = (mouseY - 0.5) * 20;
+        const moveX = (lastX - 0.5) * 20;
+        const moveY = (lastY - 0.5) * 20;
         codeBlock.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      }
+      ticking = false;
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      lastX = e.clientX / window.innerWidth;
+      lastY = e.clientY / window.innerHeight;
+      
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
       }
     });
   }
 
   // ==========================================
-  // Add Particle Effect to Hero
+  // Add Particle Effect to Hero (Optimized)
   // ==========================================
   
   function addParticleEffect() {
     const hero = document.querySelector('.hero');
     if (!hero) return;
 
-    // Create subtle floating particles
-    for (let i = 0; i < 15; i++) {
+    // Create subtle floating particles (reduced for performance)
+    for (let i = 0; i < 8; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
       particle.style.cssText = `
