@@ -90,7 +90,7 @@ export default function Home() {
         />
         <div className="about-grid">
           <p>
-            I'm Aditya Kumar, a Computer Science & Engineering student at Indian Institute of Information Technology Sonepat with a strong interest in software development and technology innovation. I work across frontend and backend development, building real-world applications using React, Next.js, Node.js, Express, MongoDB, Java, Python.
+            I&apos;m Aditya Kumar, a Computer Science & Engineering student at Indian Institute of Information Technology Sonepat with a strong interest in software development and technology innovation. I work across frontend and backend development, building real-world applications using React, Next.js, Node.js, Express, MongoDB, Java, Python.
           </p>
           <p>
             My experience includes developing production-grade platforms, including the official college website and large-scale e-commerce solutions. Alongside full-stack development, I actively practice DSA, having solved 750+ problems. I am also exploring AI/ML and continuously learning new technologies to build impactful and scalable software.
