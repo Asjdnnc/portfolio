@@ -54,7 +54,7 @@ export default function Home() {
               <ArrowDown size={17} aria-hidden="true" />
               View work
             </a>
-            <a className="button button-secondary" href="/resume.pdf" target="_blank" rel="noreferrer">
+            <a className="button button-secondary" href="/Resume.pdf" target="_blank" rel="noreferrer">
               <Download size={17} aria-hidden="true" />
               Resume
             </a>
