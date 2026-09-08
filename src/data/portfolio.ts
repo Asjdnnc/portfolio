@@ -20,6 +20,7 @@ export type SocialLink = {
 };
 
 export type Project = {
+  slug: string;
   title: string;
   category: string;
   image: string;
@@ -57,7 +58,7 @@ export const socials: SocialLink[] = [
 ];
 
 export const highlights = [
-  { value: "800+", label: "LeetCode problems solved" },
+  { value: "900+", label: "LeetCode problems solved" },
   { value: "10", label: "featured projects" },
   { value: "1905", label: "LeetCode contest rating" },
   { value: "3★", label: "CodeChef Rating" },
@@ -127,6 +128,7 @@ export const experience: TimelineItem[] = [
 
 export const projects: Project[] = [
   {
+    slug: "quickkart",
     title: "Quickkart.com.au",
     category: "Ecommerce Website",
     image: "/projects/quickkart.png",
@@ -136,6 +138,7 @@ export const projects: Project[] = [
     live: "https://www.quickkart.com.au/",
   },
   {
+    slug: "iiit-sonepat",
     title: "IIIT Sonepat Official Website",
     category: "Website",
     image: "/projects/iiits.png",
@@ -145,26 +148,28 @@ export const projects: Project[] = [
     live: "https://www.iiitsonepat.ac.in/",
   },
   {
+    slug: "testify",
     title: "Testify",
     category: "Website",
     image: "/projects/testify.png",
-    summary:
-      "An online exam and platform (Saas)",
+    summary: "An online exam and platform (Saas) as my College Major Project",
     tags: ["Next.js", "AI", "Deployment"],
     live: "https://testify-mocha.vercel.app/",
-    source : "https://github.com/Asjdnnc/testify",
+    source: "https://github.com/Asjdnnc/testify",
   },
   {
-    title: "An Online Ticket booking Platform ",
+    slug: "ticket-booking",
+    title: "An Online Ticket booking Platform",
     category: "Hackathon Project",
     image: "/projects/ticket.png",
     summary:
       "A high-performance, real-time seat booking system with distributed locking, concurrent booking handling, and live seat status updates across all connected clients.",
-    tags: ["Next.js", "Redis","WebSocket", "Deployment"],
-    live: "https://hack-the-winter-r3.vercel.app/",
-    source: "https://github.com/Asjdnnc/Hack-The-Winter-R3",
+    tags: ["Next.js", "Redis", "WebSocket", "Deployment"],
+    live: "https://ticket-booking-client-sigma.vercel.app",
+    source: "https://github.com/Asjdnnc/Ticket-Booking",
   },
   {
+    slug: "wanderstay",
     title: "Wanderstay",
     category: "Full-stack travel listings",
     image: "/projects/wanderstay.png",
@@ -175,6 +180,7 @@ export const projects: Project[] = [
     source: "https://github.com/Asjdnnc/majorProject/tree/master",
   },
   {
+    slug: "marvel",
     title: "Marvel Movies",
     category: "Entertainment interface",
     image: "/projects/marvel.png",

@@ -62,7 +62,7 @@ export default function Home() {
         </div>
         <div className="hero-visual" aria-label="Aditya Kumar portrait and portfolio preview">
           <div className="portrait-frame">
-            <Image src="/images/profile.jpg" alt="Aditya Kumar" fill priority sizes="(max-width: 700px) 14vw, 50vw" />
+            <Image src="/images/profile.png" alt="Aditya Kumar" fill priority sizes="(max-width: 700px) 14vw, 50vw" />
           </div>
           {/* <div className="signal-card">
             <span>Current focus</span>
@@ -142,7 +142,7 @@ export default function Home() {
 
         <div className="leetcode-stats-grid">
           <div>
-            <strong>800+</strong>
+            <strong>900+</strong>
             <span>Problems solved</span>
           </div>
           <div>
